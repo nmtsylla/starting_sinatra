@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<!--
+	Striped 2.5 by HTML5 Up!
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title><%= @title %></title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans+Condensed:300,700" rel="stylesheet" />
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-panels.min.js"></script>
+		<script src="/js/init.js"></script>
+        <script src="/js/social-likes.min.js"></script>
+
+		<noscript>
+			<link rel="stylesheet" href="./css/skel-noscript.css" />
+			<link rel="stylesheet" href="./css/style.css" />
+			<link rel="stylesheet" href="./css/style-desktop.css" />
+			<link rel="stylesheet" href="./css/style-wide.css" />
+			<link rel="stylesheet" href="./css/social-likes.css" />
+
+
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="./css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="/js/html5shiv.js"></script><link rel="stylesheet" href="./css/ie8.css" /><![endif]-->
+		<!--[if lte IE 7]><link rel="stylesheet" href="./css/ie7.css" /><![endif]-->
+	</head>
+	<body class="left-sidebar">
+    <div id="fb-root"></div>
+
+			<div id="wrapper">
+					<div id="content">
+						<div id="content-inner">
+                          <% if current_user %>
+                              Hello <%= current_user.nickname %>
+                              <a href='/logout'>Logout</a><br>
+                          <% else %>
+                            <a href='/auth/facebook'>Login with facebook</a><br>
+                            <a href='/auth/twitter'>Login with twitter</a><br>
+                          <% end %>
+                          <div class="flash error"><%= flash[:error] %></div>
+							<%= yield %>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+					
+						<!-- Logo -->
+							<div id="logo">
+								<h1>Dinama Nekh</h1>
+                                <a data-share="facebook" data-title="Gizoogle that shiznit" data-link="http://localhost/dinama_nekh" href="https://www.facebook.com/sharer/sharer.php?u=dinamanekh.com/1">Tell your Facebook friends! They'll love it!!</a>
+							</div>
+					
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="current_page_item"><a href="/">Latest Post</a></li>
+									<li><a href="/add">Proposer un post</a></li>
+									<li><a href="/messages">Tous les posts</a></li>
+									<li><a href="#">Contact Me</a></li>
+								</ul>
+							</nav>
+
+						<!-- Search -->
+							<section class="is-search">
+								<form method="post" action="#">
+									<input type="text" class="text" name="search" placeholder="Search" />
+								</form>
+							</section>
+					
+
+						
+						<!-- Copyright -->
+							<div id="copyright">
+								<p>
+									&copy; 2013 An Untitled Site.<br />
+									Images: <a href="http://n33.co">n33</a>, <a href="http://fotogrph.com">fotogrph</a><br />
+									Design: <a href="http://html5up.net/">HTML5 UP</a>
+								</p>
+							</div>
+
+					</div>
+
+			</div>
+
+	</body>
+    <script>
+        $( parentContainer ).socialSharers({
+            twitter: {
+                handle: 'daro' // will add 'via @neilcarpenter' on tweets
+            },
+            facebook: {
+                appID: 431041210359043 // will load FB SDK asynchronously and add 'via [FB APP NAME]'
+            }
+        });
+    </script>
+</html>
+

@@ -1,0 +1,16 @@
+<section>
+<% if @note %>
+	<form action="/message/<%= @note.id %>" method="post" id="edit">
+		<input type="hidden" name="_method" value="put"> 
+		<input type="text" name="title" value="<%= @note.title %>" />
+        <input type="text" name="episode"/>
+		<textarea name="content"><%= @note.content %></textarea>      
+		<input type="submit" value="Modifier">  
+	</form>  
+	<p>
+		<a href="/message/<%= @note.id %>/delete" class="btn">Delete</a>
+	</p>  
+<% else %>  
+	<p>Note not found.</p>  
+<% end %>
+</section>
